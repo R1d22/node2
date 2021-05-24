@@ -1,9 +1,14 @@
 const os = require('os');
-const allData = os.cpus();
-const inData = allData[0];
-const speed = inData.speed;
-console.log('speed:', speed);
+
+const {cpus} = require('os');
+const showSpeedCpu = () => {
+    const result = cpus();
+    const names = result.map((item) => {
+        return item.speed;
+    });
+    console.log(names);
+};
 
 module.exports = {
-    speed
+    showSpeedCpu
 };

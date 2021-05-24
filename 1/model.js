@@ -1,11 +1,16 @@
 const os = require('os');
-const allData = os.cpus();
-const inData = allData[0];
-const model = inData.model;
-console.log('model:', model);
 
-module.exports = {
-    model
+
+
+const {cpus} = require('os');
+const showModelCpu = () => {
+    const result = cpus();
+    const names = result.map((item) => {
+        return item.model;
+    });
+    console.log(names);
 };
 
-
+module.exports = {
+     showModelCpu
+};
